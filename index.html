@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A Special Request 💸💖</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background-image: url('c5d42d18-cb29-4fcb-9e04-4bd114f6dc55.jpg'); /* Use a high-res direct image link */
+      padding: 20px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 40px 30px;
+      border-radius: 24px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      max-width: 420px;
+      width: 100%;
+      position: relative;
+    }
+
+    h1 {
+      font-size: 1.8rem;
+      color: #2d3748;
+      margin-bottom: 12px;
+    }
+
+    p {
+      color: #718096;
+      font-size: 1.05rem;
+      line-height: 1.5;
+      margin-bottom: 25px;
+    }
+
+    .step {
+      display: none;
+    }
+
+    .step.active {
+      display: block;
+    }
+
+    .btn {
+      padding: 14px 28px;
+      font-size: 1rem;
+      font-weight: 700;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+      transition: all 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+    }
+
+    .btn-group {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      position: relative;
+      min-height: 60px;
+      align-items: center;
+      margin-top: 15px;
+    }
+
+    #noBtn {
+      background: #e53e3e;
+      position: absolute;
+      box-shadow: 0 4px 15px rgba(229, 62, 62, 0.4);
+    }
+
+    .input-group {
+      margin: 20px 0;
+    }
+
+    input[type="number"] {
+      width: 85%;
+      padding: 14px 18px;
+      font-size: 1.2rem;
+      border: 2px solid #cbd5e0;
+      border-radius: 14px;
+      outline: none;
+      text-align: center;
+      transition: border-color 0.2s;
+    }
+
+    input[type="number"]:focus {
+      border-color: #764ba2;
+    }
+
+    /* Interactive 2D Spinning Photo Frame */
+    .photo-container {
+      width: 180px;
+      height: 180px;
+      margin: 20px auto;
+      position: relative;
+      border-radius: 50%;
+      padding: 6px;
+      background: linear-gradient(45deg, #ff9a9e, #fecfef, #a1c4fd);
+      animation: spinRing 6s linear infinite;
+    }
+
+    .photo-container:hover {
+      animation-play-state: paused;
+    }
+
+    .photo-circle {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      display: block;
+    }
+
+    @keyframes spinRing {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .note-box {
+      background: #f7fafc;
+      border-radius: 12px;
+      padding: 18px;
+      text-align: left;
+      margin-top: 20px;
+      font-size: 0.95rem;
+      color: #4a5568;
+      border-left: 4px solid #764ba2;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Replace source with direct audio MP3 link -->
+  <!-- Replace line 124 in your index.html with this: -->
+<audio id="bgMusic" loop>
+  <source src="ssstik.io_1792131393773.mp3" type="audio/mpeg">
+</audio>
+  <div class="card" id="mainCard">
+
+    <!-- Step 1: Welcome -->
+    <div class="step active" id="step1">
+      <h1>Hellooooo!👋✨</h1>
+      <p>I have a quick message and a small request for you.</p>
+      <button class="btn" onclick="startApp()">Open Message 💌</button>
+    </div>
+
+    <!-- Step 2: The Question -->
+    <div class="step" id="step2">
+      <h1>PAUTANG PO! 🥺💸</h1>
+      <p>FOR WHAT? FOR FOOD 🍽️</p>
+      
+      <div class="btn-group">
+        <button class="btn" onclick="goToStep(3)">SIGE! 💕</button>
+        <button class="btn" id="noBtn" onmouseover="dodgeNo()" onclick="dodgeNo()">DI PWEDE 😜</button>
+      </div>
+    </div>
+
+    <!-- Step 3: Amount Input -->
+    <div class="step" id="step3">
+      <h1>YESSSSSSSS! 🎉</h1>
+      <p>ILAN IPAPAHIRAM MO?</p>
+      
+      <div class="input-group">
+        <input type="number" id="loanAmount" placeholder="Enter amount (PESO)" min="1">
+      </div>
+
+      <button class="btn" onclick="confirmAmount()">Continue ➡️</button>
+    </div>
+
+    <!-- Step 4: Photo & Thank You Note -->
+    <div class="step" id="step4">
+      <h1>SALAMUCHHH! 🥰</h1>
+
+      <!-- Hoverable 2D Photo Ring -->
+      <div class="photo-container" title="Hover to pause spin!">
+        <img src="c5d42d18-cb29-4fcb-9e04-4bd114f6dc55.jpg" alt="Your Photo" class="photo-circle">
+      </div>
+
+      <div class="note-box">
+        <p><strong>ARIGATOOOGOSAIMASUUU,</strong></p>
+        <p style="margin-top: 6px;">SYEMPRE DIKO NA YON BABAYARAN<strong></strong>HAHAHAAHAHAHAHA 🚀</p>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    const music = document.getElementById('bgMusic');
+    const noBtn = document.getElementById('noBtn');
+    const card = document.getElementById('mainCard');
+
+    noBtn.style.left = '150px';
+
+    function startApp() {
+      music.play().catch(e => console.log("Audio block:", e));
+      goToStep(2);
+    }
+
+    function goToStep(step) {
+      document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+      document.getElementById(`step${step}`).classList.add('active');
+    }
+
+    function dodgeNo() {
+      const cardRect = card.getBoundingClientRect();
+      const btnRect = noBtn.getBoundingClientRect();
+
+      const maxX = cardRect.width - btnRect.width - 40;
+      const maxY = cardRect.height - btnRect.height - 40;
+
+      noBtn.style.left = `${Math.floor(Math.random() * maxX)}px`;
+      noBtn.style.top = `${Math.floor(Math.random() * maxY)}px`;
+    }
+
+    function confirmAmount() {
+      const amount = document.getElementById('loanAmount').value;
+      if (!amount || amount <= 0) {
+        alert("Please enter a valid amount!");
+        return;
+      }
+      document.getElementById('displayAmount').innerText = amount;
+      goToStep(4);
+    }
+  </script>
+
+</body>
+</html>
