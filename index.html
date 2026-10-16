@@ -17,7 +17,9 @@
       justify-content: center;
       align-items: center;
       min-height: 100vh;
-      background-image: url('c5d42d18-cb29-4fcb-9e04-4bd114f6dc55.jpg'); /* Use a high-res direct image link */
+      background-image: url('c5d42d18-cb29-4fcb-9e04-4bd114f6dc55.jpg');
+      background-size: cover;
+      background-position: center;
       padding: 20px;
     }
 
@@ -150,11 +152,11 @@
 </head>
 <body>
 
-  <!-- Replace source with direct audio MP3 link -->
-  <!-- Replace line 124 in your index.html with this: -->
-<audio id="bgMusic" loop>
-  <source src="ssstik.io_1792131393773.mp3" type="audio/mpeg">
-</audio>
+  <!-- Audio Element -->
+  <audio id="bgMusic" loop>
+    <source src="ssstik.io_1792131393773.mp3" type="audio/mpeg">
+  </audio>
+
   <div class="card" id="mainCard">
 
     <!-- Step 1: Welcome -->
@@ -198,7 +200,7 @@
 
       <div class="note-box">
         <p><strong>ARIGATOOOGOSAIMASUUU,</strong></p>
-        <p style="margin-top: 6px;">SYEMPRE DIKO NA YON BABAYARAN<strong></strong>HAHAHAAHAHAHAHA 🚀</p>
+        <p style="margin-top: 6px;">Salamat sa ₱<span id="displayAmount">0</span>! SYEMPRE DIKO NA YON BABAYARAN HAHAHAAHAHAHAHA 🚀</p>
       </div>
     </div>
 
@@ -238,7 +240,12 @@
         alert("Please enter a valid amount!");
         return;
       }
-      document.getElementById('displayAmount').innerText = amount;
+      
+      const displayElem = document.getElementById('displayAmount');
+      if (displayElem) {
+        displayElem.innerText = amount;
+      }
+      
       goToStep(4);
     }
   </script>
